@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Employee Information</title>
+    <style>
+        form {
+            margin: 0 auto;
+            max-width: 600px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"], select {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>Edit Employee Information</h1>
+<form th:action="@{/employees/edit/{id}(id=${employee.id})}" method="POST">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" th:value="${employee.name}"><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" th:value="${employee.email}"><br>
+
+    <label for="phone">Phone:</label><br>
+    <input type="tel" id="phone" name="phone" th:value="${employee.phone}"><br>
+
+    <label for="address">Address:</label><br>
+    <input type="text" id="address" name="address" th:value="${employee.address}"><br>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
